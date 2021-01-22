@@ -33,10 +33,25 @@ func (c DeliveryWindowCounter) Report() map[string]interface{} {
 }
 
 func NewDeliveryWindowCounter(postcode, from, to string) *DeliveryWindowCounter {
+	var (
+		fromTime, toTime int
+		err              error
+	)
+
+	fromTime, err = Ampmto24h(from)
+	if err != nil {
+		panic(err)
+	}
+
+	toTime, err = Ampmto24h(to)
+	if err != nil {
+		panic(err)
+	}
+
 	return &DeliveryWindowCounter{
-		from:     Ampmto24h(from),
+		from:     fromTime,
 		fromAm:   from,
-		to:       Ampmto24h(to),
+		to:       toTime,
 		toPm:     to,
 		postcode: postcode,
 		counter:  0,

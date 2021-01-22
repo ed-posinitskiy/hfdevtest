@@ -35,15 +35,19 @@ func init() {
 	ampmRe = regexp.MustCompile("(?i)([0-9]+)([amp]{2})")
 }
 
-func Ampmto24h(t string) int {
+func Ampmto24h(t string) (int, error) {
 	parts := ampmRe.FindStringSubmatch(t)
 	if parts[1] == "" || parts[2] == "" {
-		panic(fmt.Errorf("invalid input: %v, 00AM or 00PM expected", t))
+		return 0, fmt.Errorf("invalid input: %v, 00AM or 00PM expected", t)
 	}
 
 	hours, err := strconv.ParseFloat(parts[1], 64)
 	if err != nil {
-		panic(err)
+		return 0, err
+	}
+
+	if hours < 1 || hours > 12 {
+		return 0, fmt.Errorf("time value expected to be between 1 and 12")
 	}
 
 	hours = math.Mod(hours, 12)
@@ -52,7 +56,7 @@ func Ampmto24h(t string) int {
 		hours += 12
 	}
 
-	return int(hours)
+	return int(hours), nil
 }
 
 // We assume now we have only one format as defined int the task
@@ -60,9 +64,24 @@ func Ampmto24h(t string) int {
 func ParseDelivery(val string) *Delivery {
 	parts := deliveryRe.FindStringSubmatch(val)
 
+	var (
+		fromTime, toTime int
+		err              error
+	)
+
+	fromTime, err = Ampmto24h(parts[2])
+	if err != nil {
+		panic(err)
+	}
+
+	toTime, err = Ampmto24h(parts[3])
+	if err != nil {
+		panic(err)
+	}
+
 	return &Delivery{
 		Weekday: parts[1],
-		From:    Ampmto24h(parts[2]),
-		To:      Ampmto24h(parts[3]),
+		From:    fromTime,
+		To:      toTime,
 	}
 }

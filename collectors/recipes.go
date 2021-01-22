@@ -66,7 +66,7 @@ func NewRecipesCollector(searchRecipes []string) *RecipesCollector {
 	var searchPattern *regexp.Regexp
 
 	if len(searchRecipes) > 0 {
-		searchPattern = regexp.MustCompile(fmt.Sprintf("(%s)", strings.Join(searchRecipes, "|")))
+		searchPattern = regexp.MustCompile(fmt.Sprintf("(?i)(%s)", strings.Join(searchRecipes, "|")))
 	}
 
 	return &RecipesCollector{
