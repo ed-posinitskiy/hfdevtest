@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"recipe-counter/collectors"
+	"recipe-counter/downloader"
 	"recipe-counter/parser"
 	"strings"
 )
@@ -53,7 +54,8 @@ func main() {
 		os.Exit(0)
 	}
 
-	p := parser.NewStreamParser(inputSrc)
+	filepath := prepareSource(inputSrc)
+	p := parser.NewStreamParser(filepath)
 	stats := collectors.NewStatsAggregate(
 		[]collectors.Collector{
 			collectors.NewRecipesCollector(recipePattern),
@@ -78,4 +80,19 @@ func main() {
 	}
 
 	fmt.Print(string(report))
+}
+
+// Will check if provided source is a local file or downloadable URL
+// In case it's a URL we will download it into local FS to read from it later on
+func prepareSource(src string) string {
+	if !downloader.CanHandle(src) {
+		return src
+	}
+
+	filepath, err := downloader.Download(src)
+	if err != nil {
+		panic(err)
+	}
+
+	return filepath.Name()
 }

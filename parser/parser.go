@@ -37,8 +37,8 @@ func (p StreamParser) Read(listener func(r *Record)) {
 	}
 }
 
-func NewStreamParser(src string) *StreamParser {
-	file, err := os.Open(src)
+func NewStreamParser(filepath string) *StreamParser {
+	file, err := os.Open(filepath)
 	if err != nil {
 		panic(err)
 	}
