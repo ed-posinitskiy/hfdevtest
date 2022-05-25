@@ -1,0 +1,82 @@
+[
+  {
+    "postcode": "10224",
+    "recipe": "Creamy Dill Chicken",
+    "delivery": "Wednesday 1AM - 7PM"
+  },
+  {
+    "postcode": "10208",
+    "recipe": "Speedy Steak Fajitas",
+    "delivery": "Thursday 7AM - 5PM"
+  },
+  {
+    "postcode": "10120",
+    "recipe": "Cherry Balsamic Pork Chops",
+    "delivery": "Thursday 7AM - 9PM"
+  },
+  {
+    "postcode": "10186",
+    "recipe": "Cherry Balsamic Pork Chops",
+    "delivery": "Saturday 1AM - 8PM"
+  },
+  {
+    "postcode": "10163",
+    "recipe": "Hot Honey Barbecue Chicken Legs",
+    "delivery": "Wednesday 7AM - 5PM"
+  },
+  {
+    "postcode": "10213",
+    "recipe": "Tex-Mex Tilapia",
+    "delivery": "Friday 8AM - 7PM"
+  },
+  {
+    "postcode": "10137",
+    "recipe": "One-Pan Orzo Italiano",
+    "delivery": "Wednesday 4AM - 7PM"
+  },
+  {
+    "postcode": "10180",
+    "recipe": "Chicken Sausage Pizzas",
+    "delivery": "Saturday 6AM - 7PM"
+  },
+  {
+    "postcode": "10148",
+    "recipe": "Spanish One-Pan Chicken",
+    "delivery": "Saturday 10AM - 4PM"
+  },
+  {
+    "postcode": "10127",
+    "recipe": "Grilled Cheese and Veggie Jumble",
+    "delivery": "Saturday 8AM - 1PM"
+  },
+  {
+    "postcode": "10117",
+    "recipe": "Speedy Steak Fajitas",
+    "delivery": "Monday 10AM - 9PM"
+  },
+  {
+    "postcode": "10124",
+    "recipe": "Melty Monterey Jack Burgers",
+    "delivery": "Wednesday 9AM - 6PM"
+  },
+  {
+    "postcode": "10163",
+    "recipe": "Cherry Balsamic Pork Chops",
+    "delivery": "Tuesday 11AM - 3PM"
+  },
+  {
+    "postcode": "10180",
+    "recipe": "Grilled Cheese and Veggie Jumble",
+    "delivery": "Saturday 8AM - 1PM"
+  },
+  {
+    "postcode": "10117",
+    "recipe": "Tex-Mex Tilapia",
+    "delivery": "Monday 11AM - 3PM"
+  },
+  {
+    "postcode": "10180",
+    "recipe": "One-Pan Orzo Italiano",
+    "delivery": "Saturday 10AM - 5PM"
+  }
+]

@@ -1,4 +1,4 @@
-FROM golang:1.15.7-alpine3.13 as build
+FROM golang:1.17.10-alpine3.16 as build
 
 ENV WORKDIR=/go/src/recipe-collector
 
